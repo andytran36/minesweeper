@@ -300,7 +300,7 @@ function prepare_dom(game) {
       grid.appendChild(cell);
 
       // Event listener for taphold
-      $(cell).on("taphold", function(event) {
+      jQuery(`[data-cellInd='${coordToIndex(j, i, maxCols)}']`).on("taphold", function(event) {
         console.log("longpress");
         game.mark(i, j);
         const state = game.getStatus();
