@@ -98,7 +98,6 @@ let MSGame = (function(){
     // uncovers a cell at a given coordinate
     // this is the 'left-click' functionality
     uncover(row, col) {
-      console.log("uncover", row, col);
       // if coordinates invalid, refuse this request
       if( ! this.validCoord(row,col)) return false;
       // if this is the very first move, populate the mines, but make
@@ -342,7 +341,7 @@ function main() {
   document.querySelector("#overlay").addEventListener("click", () => {
     document.querySelector("#overlay").classList.remove("active");
     const state = game.getStatus();
-    game.init(state.nrows, state.nrows, state.nmines);
+    game.init(state.nrows, state.ncols, state.nmines);
     reset();
     render(game.getRendering(), game.getStatus());
   });
